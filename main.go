@@ -2,10 +2,10 @@ package main
 
 import (
 	"flag"
+	"github.com/coolboydan/db-switch/service"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"log"
 	"net/http"
-	"github.com/coolboydan/db-switch/service"
 )
 
 var path = flag.String("path", "config.toml", "path")
@@ -21,9 +21,7 @@ func main() {
 	flag.Parse()
 	http.Handle("/metrics", promhttp.Handler())
 
-
 	//开启一个新的线程定时检查线程
-
 
 	//检查是否连接的上,如果连接不上，在3秒内重试3次。
 
@@ -32,7 +30,6 @@ func main() {
 	//执行切换语句
 
 	//执行完成之后发个邮件
-
 
 	log.Print("service start")
 	log.Fatal(http.ListenAndServe(cfg.Port, nil))
