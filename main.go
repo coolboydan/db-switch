@@ -5,7 +5,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"log"
 	"net/http"
-	"github.com/coolboydan/db-switch/service/config"
+	"github.com/coolboydan/db-switch/service"
 )
 
 var path = flag.String("path", "config.toml", "path")
@@ -14,9 +14,9 @@ func main() {
 
 	flag.Parse()
 
-	cfg := config.NewConfig()
+	cfg := service.NewConfig()
 
-	cfg.configFromFile(*path)
+	cfg.ConfigFromFile(*path)
 
 	flag.Parse()
 	http.Handle("/metrics", promhttp.Handler())

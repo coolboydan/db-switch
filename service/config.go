@@ -46,7 +46,7 @@ func NewConfig() *Config {
 }
 
 // configFromFile loads config from file.
-func (c *Config) configFromFile(path string) error {
+func (c *Config) ConfigFromFile(path string) error {
 	_, err := toml.DecodeFile(path, c)
 	return errors.Trace(err)
 }
