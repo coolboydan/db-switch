@@ -21,6 +21,8 @@ type Config struct {
 
 	NginxConfig string `toml:"nginx-config" json:"nginx-config"`
 
+	SwitchConfig string `toml:"switch-config" json:"switch-config"`
+
 	MonitorDb DBConfig `toml:"monitor-db" json:"monitor-db"`
 
 	SwitchDb DBConfig `toml:"switch-db" json:"switch-db"`
